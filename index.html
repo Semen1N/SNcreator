@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+npx plugins add vercel/vercel-plugin
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моє Резюме | Веб-розробник</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: var(--bg-color);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid #eee;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Заміни на своє реальне ім'я -->
+        <h1>Семен</h1>
+        <p>Веб-розробник</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>Про мене</h2>
+            <p>Привіт! Я захоплююсь створенням сайтів та програмуванням. Мені подобається перетворювати ідеї на працюючий код та створювати зручні інтерфейси. Постійно вивчаю нові технології, верстаю сайти та пишу код на Python. Завжди відкритий до нових і цікавих завдань.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Мої навички</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Telegram API</div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Мої роботи</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Персональний сайт</h3>
+                    <p>Сайт-візитка з адаптивним дизайном, створений з нуля для демонстрації навичок верстки.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Telegram Бот</h3>
+                    <p>Бот із логуванням дій користувачів та зручним інтерактивним меню.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Зв'язатися зі мною</h2>
+            <ul class="contact-info">
+                <li>📞 Телефон: <a href="tel:+380960051555">+38 (096) 005-15-55</a></li>
+                <li>📧 Email: <a href="mailto:sncreator@proton.me">sncreator@proton.me</a></li>
+                <!-- Можеш додати посилання на свій Telegram, замінивши 'твій_нік' -->
+                <li>✈️ Telegram: <a href="https://t.me/sn_creator" target="_blank">@Sn_creator</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Твоє Ім'я. Всі права захищені.</p>
+    </footer>
+
+</body>
+</html>
