@@ -3,189 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моє Резюме | Веб-розробник</title>
+    <title>Семен | Веб-розробник & Python Інженер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
+            --bg-color: #050505;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-1: #00f2fe;
+            --accent-2: #4facfe;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
+        /* Задній фон з неоновим світінням */
+        .glow-1 {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--accent-1);
+            filter: blur(200px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        .glow-2 {
+            position: fixed;
+            bottom: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: #818cf8;
+            filter: blur(200px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #bdc3c7;
-            margin-top: 10px;
+        /* Навігація */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
         }
 
-        .container {
-            max-width: 900px;
+        .nav-container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
 
-        section {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: 2px;
         }
 
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-1);
+        }
+
+        /* Головний контейнер */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Секція Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 80px;
+        }
+
+        .hero p.subtitle {
+            color: var(--accent-1);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.description {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
             display: inline-block;
-            margin-top: 0;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Секції */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Картки експертизи */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            background: var(--bg-color);
-            padding: 1rem;
-            text-align: center;
-            border-radius: 5px;
-            font-weight: bold;
-            color: var(--secondary-color);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
-        .project-card {
-            border: 1px solid #eee;
-            padding: 1.5rem;
-            border-radius: 8px;
-            background: #fff;
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.4s, border-color 0.4s;
         }
 
-        .project-card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 242, 254, 0.4);
         }
 
-        .contact-info {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-info li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        .skill-item h3 {
+            color: var(--text-main);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
+        
+        .skill-item h3 span {
+            color: var(--accent-1);
+        }
 
-        .contact-info a {
-            color: var(--secondary-color);
+        .skill-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Контакти */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
             text-decoration: none;
-            font-weight: bold;
+            color: var(--text-main);
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 242, 254, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-1);
+            transition: background 0.3s;
         }
 
+        .contact-link:hover .icon-box {
+            background: var(--accent-1);
+            color: #000;
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Футер */
         footer {
             text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .logo { margin: 0 auto; }
+            .section-title { font-size: 2rem; }
+            section { padding: 4rem 0; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- Заміни на своє реальне ім'я -->
-        <h1>Семен</h1>
-        <p>Веб-розробник</p>
-    </header>
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">SEMEN.DEV</a>
+            <div class="nav-links">
+                <a href="#expertise">Експертиза</a>
+                <a href="#approach">Мій підхід</a>
+                <a href="#contact">Контакти</a>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         
-        <section id="about">
-            <h2>Про мене</h2>
-            <p>Привіт! Я захоплююсь створенням сайтів та програмуванням. Мені подобається перетворювати ідеї на працюючий код та створювати зручні інтерфейси. Постійно вивчаю нові технології, верстаю сайти та пишу код на Python. Завжди відкритий до нових і цікавих завдань.</p>
+        <!-- Головний екран -->
+        <section class="hero">
+            <p class="subtitle">Інженерія веб-рішень та автоматизація</p>
+            <h1>Проектую та пишу<br><span>чистий код</span></h1>
+            <p class="description">Я не просто створюю сайти-шаблони. Я розробляю продумані архітектурні рішення, адаптивні веб-інтерфейси та інструменти автоматизації (Telegram-боти), які закривають реальні потреби бізнесу. Сучасний стек, математична логіка та увага до деталей.</p>
+            <a href="#contact" class="btn">Обговорити проект</a>
         </section>
 
-        <section id="skills">
-            <h2>Мої навички</h2>
+        <!-- Експертиза -->
+        <section id="expertise">
+            <h2 class="section-title">Моя експертиза</h2>
+            <p class="section-subtitle">Технології та рішення, які я використовую для досягнення результату</p>
+            
             <div class="skills-grid">
-                <div class="skill-item">HTML5</div>
-                <div class="skill-item">CSS3</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">Python</div>
-                <div class="skill-item">Telegram API</div>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <h2>Мої роботи</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Персональний сайт</h3>
-                    <p>Сайт-візитка з адаптивним дизайном, створений з нуля для демонстрації навичок верстки.</p>
+                <div class="glass-card skill-item">
+                    <h3><span>&lt;/&gt;</span> Frontend розробка</h3>
+                    <p>Семантична верстка (HTML5/CSS3) з підходом Mobile First. Створюю швидкі, оптимізовані інтерфейси, що бездоганно працюють і масштабуються на будь-яких пристроях та розширеннях екрану.</p>
                 </div>
-                <div class="project-card">
-                    <h3>Telegram Бот</h3>
-                    <p>Бот із логуванням дій користувачів та зручним інтерактивним меню.</p>
+                <div class="glass-card skill-item">
+                    <h3><span>⚙️</span> Автоматизація & Python</h3>
+                    <p>Розробка логіки та скриптів на Python. Проектування складних Telegram-ботів: від інтерактивних меню та систем логування до інтеграції з API та обробки даних користувачів.</p>
+                </div>
+                <div class="glass-card skill-item">
+                    <h3><span>📐</span> Архітектура та логіка</h3>
+                    <p>Пишу підтримуваний і структурований код. Розуміння алгоритмів та сильна аналітична база дозволяють мені будувати надійну архітектуру проектів і вирішувати нестандартні технічні задачі.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Контакти -->
         <section id="contact">
-            <h2>Зв'язатися зі мною</h2>
-            <ul class="contact-info">
-                <li>📞 Телефон: <a href="tel:+380960051555">+38 (096) 005-15-55</a></li>
-                <li>📧 Email: <a href="mailto:sncreator@proton.me">sncreator@proton.me</a></li>
-                <!-- Можеш додати посилання на свій Telegram, замінивши 'твій_нік' -->
-                <li>✈️ Telegram: <a href="https://t.me/SY0MA1" target="_blank">@SYOMA1</a></li>
-            </ul>
+            <h2 class="section-title">Ініціювати зв'язок</h2>
+            <p class="section-subtitle">Готові автоматизувати процеси або створити потужний веб-продукт? Напишіть мені.</p>
+            
+            <div class="contact-grid">
+                
+                <a href="tel:+380960051555" class="glass-card contact-link">
+                    <div class="icon-box">📞</div>
+                    <div class="contact-info">
+                        <p>Прямий телефон</p>
+                        <h4>+38 (096) 005-15-55</h4>
+                    </div>
+                </a>
+
+                <a href="https://t.me/SYOMA1" target="_blank" class="glass-card contact-link">
+                    <div class="icon-box">✈️</div>
+                    <div class="contact-info">
+                        <p>Telegram месенджер</p>
+                        <h4>@SYOMA1</h4>
+                    </div>
+                </a>
+
+                <a href="mailto:sncreator@proton.me" class="glass-card contact-link">
+                    <div class="icon-box">📧</div>
+                    <div class="contact-info">
+                        <p>Електронна пошта</p>
+                        <h4>sncreator@proton.me</h4>
+                    </div>
+                </a>
+
+            </div>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 SNcreator. Всі права захищені.</p>
+        <p>&copy; 2026 Семен. Розробка, підтримка та автоматизація. Всі права захищені.</p>
     </footer>
 
 </body>
